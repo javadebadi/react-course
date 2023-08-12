@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - L01</title>
+</head>
+<body>
+    <!-- Target container -->
+    <div id="root"></div>
+  
+    <!-- React library & ReactDOM -->
+    <!-- Link of CDN: https://legacy.reactjs.org/docs/cdn-links.html -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <script>
+        const rootElement = document.getElementById("root");
+        // components are ways to define reuseable UI entities
+        // components are objects and we can use them to encapsulate data and behavior
+        // i.e attributes and methods
+        // components can be defined using simple functions and they are faster
+        // than class components
+        const ScientistsList = ({items}) => {
+            
+                return React.createElement(
+                    "ul",
+                    {"className": "scientist"},
+                    items.map((scientist, index) => React.createElement(
+                        "li",
+                        null,
+                        scientist
+                    )
+                )
+                )
+            
+        }
+
+        const scientists = [
+            "Albert",
+            "Issac"
+        ]
+
+
+        ReactDOM.render(
+            ScientistsList({"items": scientists}),
+            rootElement,
+        )
+    </script>
+
+</body>
+</html>

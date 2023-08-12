@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - L01</title>
+</head>
+<body>
+    <!-- Target container -->
+    <div id="root"></div>
+  
+    <!-- React library & ReactDOM -->
+    <!-- Link of CDN: https://legacy.reactjs.org/docs/cdn-links.html -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <script>
+        const rootElement = document.getElementById("root");
+        const helloWorldHeader = React.createElement(
+            "h1",
+            {id: "heading", class: "d-block text-bold"},
+            React.createElement("div"),
+            React.createElement("div", null, React.createElement("span")),
+            [{id: 1, name: "Albert"}, {id:2, name: "Issac"}].map(
+                (item) => React.createElement("p", {id: item.id}, item.name)
+            )
+            );
+        // what values 3rd param can get? string? react element? dom element?
+        console.log(helloWorldHeader)
+
+        const helloWorldHeaderJS = document.createElement("h1")
+        console.log(helloWorldHeaderJS)
+        const d = ReactDOM.render(helloWorldHeader, rootElement);
+        console.log(d)
+    </script>
+
+</body>
+</html>

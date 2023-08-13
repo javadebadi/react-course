@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React - L01</title>
+</head>
+<body>
+    <!-- Target container -->
+    <div id="root"></div>
+  
+    <!-- React library & ReactDOM -->
+    <!-- Link of CDN: https://legacy.reactjs.org/docs/cdn-links.html -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <!-- babel to transpile JSX to JavaScript -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    
+    <!-- Script tags with type of "text/babel" will be transpiled by Babel -->
+    <script type="text/babel">
+        const rootElement = document.getElementById("root");
+        
+        const scientistsData = [
+            {
+                "id": 1,
+                "full_name": "Albert Einstein",
+                "known_for": [
+                    "Special Relativity",
+                    "General Relativity",
+                    "Photoelectric Effect",
+                    "E = m c^2"
+                ]
+            },
+            {
+                "id": 2,
+                "full_name": "Issac Newton",
+                "known_for": [
+                    "Gravity",
+                    "Classical Mechanics",
+                    "Differential and Integral",
+                    "F = m a"
+                ]
+            }
+
+        ]
+        const Menu = ({title, scientists}) => (
+            <div>
+                <h1>{title}</h1>
+                {
+                    scientists.map(
+                        (scientist, i) => <ScientistItem {...scientist} />
+                    )
+                }
+            </div>
+        );
+
+        const ScientistItem = ({full_name, known_for}) => {
+            return (
+                <div className="scientist-item">
+                    <h3 className="scientist-item-name">{full_name}</h3>
+                    <h4>Know For:</h4>
+                    <ul className="scientist-item-know-for">
+                        {
+                            known_for.map(
+                                (item , i) => <li>{item}</li>
+                            )
+                        }
+                    </ul>
+                </div>
+                )
+        }
+
+        ReactDOM.render(
+            <div>
+                <Menu title="Scientists Wiki" scientists={scientistsData}/>
+            </div>,
+            rootElement
+        )
+        
+        console.log(rootElement)
+    </script>
+
+</body>
+</html>

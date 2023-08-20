@@ -4,9 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Button } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import Icon from '@mui/material/Icon';
 
 
 import { useState } from 'react';
+import CaredComponent from './components/card'
+
+import AccessAlarmIcon from '@mui/icons-material/AccessAlarm';
+import ThreeDRotation from '@mui/icons-material/ThreeDRotation';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +23,11 @@ root.render(
   
   <React.StrictMode>
     <div class="container">
+      <div>
+        <p>Icons</p>
+        <AccessAlarmIcon />
+        <ThreeDRotation />
+      </div>
       <div>
         <p>Different Kind of variants</p>
       <Button variant="contained">Contained</Button>
@@ -47,6 +58,8 @@ root.render(
     </Button>
       </div>
 
+
+
       <div>
       
       <LoadingButton loading={true} variant="outlined">
@@ -56,6 +69,11 @@ root.render(
       <LoadingButton id="QW" loading={false} variant="outlined" onClick={(event) => event.target.loading=true}>
       <span>Submit</span>
     </LoadingButton>
+      </div>
+
+
+      <div>
+        <CaredComponent /> 
       </div>
     </div>
   </React.StrictMode>
